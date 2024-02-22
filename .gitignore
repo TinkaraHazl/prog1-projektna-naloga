@@ -20,5 +20,4 @@ _build
 venv
 env
 node_modules
-
-spletniVmesnik.bc.js
+*.bc.js
