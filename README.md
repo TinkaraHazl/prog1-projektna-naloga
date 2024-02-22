@@ -12,9 +12,10 @@ Končni avtomat je definiran kot sedmerica $(Q, \Sigma, \Gamma, \delta, q_0, Z, 
 - $Q$ množica stanj,
 - $\Sigma$ končna množica simbolov oz. abeceda,
 - $\Gamma$ končna množica, ki se imenuje skladovna abeceda
-- $\delta : Q \times \Sigma \to Q$ prehodna funkcija.
-- $q_0 \in Q$ začetno stanje,
+- $\delta : Q \times (\Sigma \cup \\{\varepsilon\\}) \times \Gamma \to Q \times \Gamma^*$ prehodna funkcija
+- $q_0 \in Q$ začetno stanje
 - $Z \in \Gamma$ začetni simbol sklada
 - $F \subseteq Q$ množica sprejemnih stanj
+
 
 
