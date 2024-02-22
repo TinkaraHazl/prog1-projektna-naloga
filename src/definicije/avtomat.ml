@@ -1,10 +1,13 @@
 type stanje = Stanje.t
+type sklad = Sklad.t
 
 type t = {
   stanja : stanje list;
   zacetno_stanje : stanje;
   sprejemna_stanja : stanje list;
   prehodi : (stanje * char * stanje) list;
+  sklad : sklad;
+  zacetni_sklad : sklad;
 }
 
 let prazen_avtomat zacetno_stanje =
@@ -13,6 +16,8 @@ let prazen_avtomat zacetno_stanje =
     zacetno_stanje;
     sprejemna_stanja = [];
     prehodi = [];
+    sklad = zacetni_sklad
+    zacetni_sklad;
   }
 
 let dodaj_nesprejemno_stanje stanje avtomat =
@@ -25,8 +30,8 @@ let dodaj_sprejemno_stanje stanje avtomat =
     sprejemna_stanja = stanje :: avtomat.sprejemna_stanja;
   }
 
-let dodaj_prehod stanje1 znak stanje2 avtomat =
-  { avtomat with prehodi = (stanje1, znak, stanje2) :: avtomat.prehodi }
+let dodaj_prehod stanje1 znak sklad_prej stanje2 sklad_po avtomat =
+  { avtomat with prehodi = (stanje1, sklad_prej, znak, stanje2 sklad_po) :: avtomat.prehodi }
 
 let prehodna_funkcija avtomat stanje znak =
   match
