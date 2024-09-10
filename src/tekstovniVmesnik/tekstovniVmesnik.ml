@@ -44,7 +44,7 @@ let rec izpisi_moznosti () =
   | "1" -> ZamenjajVmesnik IzpisAvtomata
   | "2" -> ZamenjajVmesnik BranjeNiza
   | _ ->
-      print_endline "** VNESI 1 ALI 2 **";
+      print_endline "** VNESI 1 ALI 2 >:( **";
       izpisi_moznosti ()
 
 let izpisi_avtomat avtomat =
