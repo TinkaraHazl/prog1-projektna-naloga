@@ -1,4 +1,4 @@
-# Nedeterministični skladovni avtomati
+# Deterministični skladovni avtomati
 Projekt vsebuje implementacijo skladovnih avtomatov, torej končnih avtomatov, opremljenih s skladom. 
 
 Končni avtomati začnejo v enem stanju, nato pa glede na trenutni simbol iz traka in trenutno stanje preidejo v drugo stanje. Izpis, ko avtomat gre čez celoten trak, je odvisen od trenutnega simbola in stanja.
