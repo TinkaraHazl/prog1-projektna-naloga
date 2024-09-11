@@ -20,7 +20,7 @@ Končni avtomat je definiran kot sedmerica $(Q, \Sigma, \Gamma, \delta, q_0, Z, 
 $\delta$ lahko ekvilalentno predstavimo kot prehodno funkcijo, ki slika iz $Q \times (\Sigma \cup \\{\varepsilon\\}) \times \Gamma$ v končne podmnožice $Q \times \Gamma^\*$. Tako element $(p,a,A,q,\alpha) \in \delta$ razumemo kot prehod, ki vzame stanje $q$ in glede na $a$, trenutni znak iz traka, in glede na $A$, znak na vrhu sklada, vrne novo stanje $p$ in spremeni sklad, tako da je zdaj na vrhu $\alpha$. Sklad lahko spremenimo tako, da odvzamemo element na vrhu ali ga dodamo.
 
 ## Moj avtomat
-Avtomat, ki je implementiran v tej projektni nalogi, vrednoti nize oblike $a^ib^jc^k$, sprejme pa takšne, za katere velja $i+j<k$.
+Avtomat, ki je implementiran v tej projektni nalogi, obravnava nize oblike $a^ib^jc^k$,kjer $i,j,k \geq 0$, sprejme pa takšne, za katere velja $i+j<k$.
 Tako na primer: 
 - sprejme niz oblike $"aabbccccc"$
 - ne sprejme niza oblike $"abcc"$
