@@ -41,14 +41,14 @@ let update model = function
   | ZamenjajVmesnik stanje_vmesnika -> { model with stanje_vmesnika }
 
 let rec izpisi_moznosti () =
-  print_endline "1) izpiši avtomat";
-  print_endline "2) preberi niz";
-  print_endline "3) opiši avtomat";
+  print_endline "1) opiši avtomat";
+  print_endline "2) izpiši avtomat";
+  print_endline "3) preberi niz";
   print_string "> ";
   match read_line () with
-  | "1" -> ZamenjajVmesnik IzpisAvtomata
-  | "2" -> ZamenjajVmesnik BranjeNiza
-  | "3" -> ZamenjajVmesnik Opis
+  | "1" -> ZamenjajVmesnik Opis
+  | "2" -> ZamenjajVmesnik IzpisAvtomata
+  | "3" -> ZamenjajVmesnik BranjeNiza
   | _ ->
       print_endline "** VNESI 1, 2 ALI 3 >:( **";
       izpisi_moznosti ()
