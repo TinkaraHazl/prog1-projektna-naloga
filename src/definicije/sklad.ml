@@ -1,10 +1,6 @@
 type t = {seznam : string list
 }
 
-(* type t = 
-|prazen
-|nekaj of char * t *)
-
 let vrh sklad = match sklad.seznam with
 |[] -> ""
 |x :: _ -> x

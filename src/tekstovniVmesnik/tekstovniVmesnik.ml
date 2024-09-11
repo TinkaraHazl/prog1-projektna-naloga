@@ -33,11 +33,6 @@ let preberi_niz avtomat niz =
   match ZagnaniAvtomat.korak_naprej acc with
     |None -> None
     |Some(a) -> aux a
-    (* if Trak.je_na_koncu (ZagnaniAvtomat.trak zagnani_avtomat) 
-      then ZagnaniAvtomat.stanje zagnani_avtomat
-    else match ZagnaniAvtomat.korak_naprej zagnani_avtomat with
-      |None -> None
-      |Some(a) -> a *)
   in aux zagnani_avtomat
 
 let update model = function

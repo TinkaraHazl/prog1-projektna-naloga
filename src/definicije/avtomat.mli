@@ -10,7 +10,4 @@ val zacetni_sklad : t-> Sklad.t
 val seznam_stanj : t -> Stanje.t list
 val seznam_prehodov : t -> (Stanje.t * string * char * Stanje.t * string list) list
 val je_sprejemno_stanje : t -> Stanje.t -> bool
-(* val posodobi_sklad : t -> string list -> t *)
-(* val enke_1mod3 : t
-val preberi_niz : t -> Stanje.t -> string -> Stanje.t option *)
 val vsota_prvih_dveh : t

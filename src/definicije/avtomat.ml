@@ -49,41 +49,15 @@ let zacetni_sklad avtomat = avtomat.zacetni_sklad
 
 let je_sprejemno_stanje avtomat stanje =
   List.mem stanje avtomat.sprejemna_stanja
-
-(* let enke_1mod3 =
-  let q0 = Stanje.iz_niza "q0"
-  and q1 = Stanje.iz_niza "q1"
-  and q2 = Stanje.iz_niza "q2" in
-  prazen_avtomat q0 |> dodaj_sprejemno_stanje q1
-  |> dodaj_nesprejemno_stanje q2
-  |> dodaj_prehod q0 '0' q0 |> dodaj_prehod q1 '0' q1 |> dodaj_prehod q2 '0' q2
-  |> dodaj_prehod q0 '1' q1 |> dodaj_prehod q1 '1' q2 |> dodaj_prehod q2 '1' q0 *)
-
-(* let preberi_niz avtomat q niz sklad =
-  let aux acc znak =
-    match acc with 
-    |None -> None 
-    |Some q -> Some (prehodna_funkcija avtomat q znak (Sklad.vrh sklad))
-  in
-  niz |> String.to_seq |> Seq.fold_left aux (Some q) *)
-
-(* let posodobi_sklad avtomat novi_vrh =
-{stanja = avtomat.stanja;
-  zacetno_stanje = avtomat.zacetno_stanje;
-  sprejemna_stanja = avtomat.sprejemna_stanja;
-  prehodi = avtomat.prehodi;
-  sklad = Sklad.na novi_vrh (Sklad.z avtomat.sklad);
-  zacetni_sklad = avtomat.zacetni_sklad
-} *)
-
 let vsota_prvih_dveh =
   let q1 = Stanje.iz_niza "q1"
   and q2 = Stanje.iz_niza "q2"
   and q3 = Stanje.iz_niza "q3"
   and q4 = Stanje.iz_niza "q4"
   in
-  prazen_avtomat q1 |> dodaj_sprejemno_stanje q4 
+  prazen_avtomat q1  
   |> dodaj_nesprejemno_stanje q2 |> dodaj_nesprejemno_stanje q3
+  |> dodaj_sprejemno_stanje q4
   |> dodaj_prehod q1 'a' "" q1 ["x"]
   |> dodaj_prehod q1 'a' "x" q1 ["x";"x"]
   |> dodaj_prehod q1 'b' "" q2 ["x"]
