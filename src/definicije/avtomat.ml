@@ -69,3 +69,4 @@ let vsota_prvih_dveh =
   |> dodaj_prehod q3 'c' "" q3 ["ne"]
   |> dodaj_prehod q3 'c' "x" q3 []
   |> dodaj_prehod q3 'c' "" q4 []
+  |> dodaj_prehod q4 'c' "" q4 []
