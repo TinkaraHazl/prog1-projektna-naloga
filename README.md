@@ -28,6 +28,7 @@ Tako na primer:
 
 ### Uporaba
 Avtomat poženemo tako, da v terminal napišemo **dune build**, ki zgradi datoteko _tekstovniVmesnik.exe_. Tekstovni vmesnik nato odpremo tako, da v terminal napišemo **./tekstovniVmesnik.exe**.
+
 ### Implementacija avtomata
 Avtomat je sestavljen iz dveh map, ki sta razdeljeni na module:
 1. V mapi **definicije** najdemo:
