@@ -64,9 +64,12 @@ let vsota_prvih_dveh =
   |> dodaj_prehod q1 'b' "x" q2 ["x";"x"]
   |> dodaj_prehod q2 'b' "" q2 ["x"]
   |> dodaj_prehod q2 'b' "x" q2 ["x";"x"]
+  |> dodaj_prehod q1 'c' "x" q3 []
+  |> dodaj_prehod q1 'c' "" q4 []
   |> dodaj_prehod q2 'c' "" q3 ["ne"]
   |> dodaj_prehod q2 'c' "x" q3 []
   |> dodaj_prehod q3 'c' "" q3 ["ne"]
   |> dodaj_prehod q3 'c' "x" q3 []
   |> dodaj_prehod q3 'c' "" q4 []
   |> dodaj_prehod q4 'c' "" q4 []
+  
