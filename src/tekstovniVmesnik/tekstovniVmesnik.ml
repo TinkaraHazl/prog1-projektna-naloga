@@ -16,14 +16,6 @@ type model = {
 
 type msg = PreberiNiz of string | ZamenjajVmesnik of stanje_vmesnika
 
-(* let preberi_niz avtomat q niz =
-  let aux acc znak =
-    match acc with
-    | None -> None
-    | Some (q, vrh) -> Avtomat.prehodna_funkcija avtomat q vrh znak
-  in
-  niz |> String.to_seq |> Seq.fold_left aux Some (q, (Sklad.vrh avtomat.sklad)) *)
-
 let preberi_niz avtomat niz =
   let trak = Trak.iz_niza niz in
   let zagnani_avtomat = ZagnaniAvtomat.pozeni avtomat trak
