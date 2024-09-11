@@ -5,6 +5,7 @@ type stanje_vmesnika =
   | SeznamMoznosti
   | IzpisAvtomata
   | BranjeNiza
+  | Opis
   | RezultatPrebranegaNiza
   | OpozoriloONapacnemNizu
 
@@ -42,12 +43,14 @@ let update model = function
 let rec izpisi_moznosti () =
   print_endline "1) izpiši avtomat";
   print_endline "2) preberi niz";
+  print_endline "3) opiši avtomat";
   print_string "> ";
   match read_line () with
   | "1" -> ZamenjajVmesnik IzpisAvtomata
   | "2" -> ZamenjajVmesnik BranjeNiza
+  | "3" -> ZamenjajVmesnik Opis
   | _ ->
-      print_endline "** VNESI 1 ALI 2 >:( **";
+      print_endline "** VNESI 1, 2 ALI 3 >:( **";
       izpisi_moznosti ()
 
 let izpisi_avtomat avtomat =
@@ -80,6 +83,9 @@ let view model =
       izpisi_avtomat model.avtomat;
       ZamenjajVmesnik SeznamMoznosti
   | BranjeNiza -> beri_niz model
+  | Opis -> 
+      print_endline "Avtomat obravnava nize oblike a^i b^j c^k, sprejme pa tiste, ki imajo več c-jev kot a-jev in b-jev skupaj.";
+      ZamenjajVmesnik SeznamMoznosti
   | RezultatPrebranegaNiza ->
       izpisi_rezultat model;
       ZamenjajVmesnik SeznamMoznosti
