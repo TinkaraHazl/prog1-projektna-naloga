@@ -6,8 +6,7 @@ type t = {
   zacetno_stanje : stanje;
   sprejemna_stanja : stanje list;
   prehodi : (stanje * string * char * stanje * string list) list;
-  sklad : sklad;
-  (* zacetni_sklad : sklad; *)
+  zacetni_sklad : sklad
 }
 
 let prazen_avtomat zacetno_stanje =
@@ -16,8 +15,7 @@ let prazen_avtomat zacetno_stanje =
     zacetno_stanje;
     sprejemna_stanja = [];
     prehodi = [];
-    sklad = Sklad.prazen;
-    (* zacetni_sklad = Sklad.prazen; *)
+    zacetni_sklad = Sklad.prazen
   }
 
 let dodaj_nesprejemno_stanje stanje avtomat =
@@ -47,6 +45,7 @@ let prehodna_funkcija avtomat stanje znak vrh =
 let zacetno_stanje avtomat = avtomat.zacetno_stanje
 let seznam_stanj avtomat = avtomat.stanja
 let seznam_prehodov avtomat = avtomat.prehodi
+let zacetni_sklad avtomat = avtomat.zacetni_sklad
 
 let je_sprejemno_stanje avtomat stanje =
   List.mem stanje avtomat.sprejemna_stanja
@@ -67,6 +66,15 @@ let je_sprejemno_stanje avtomat stanje =
     |Some q -> Some (prehodna_funkcija avtomat q znak (Sklad.vrh sklad))
   in
   niz |> String.to_seq |> Seq.fold_left aux (Some q) *)
+
+(* let posodobi_sklad avtomat novi_vrh =
+{stanja = avtomat.stanja;
+  zacetno_stanje = avtomat.zacetno_stanje;
+  sprejemna_stanja = avtomat.sprejemna_stanja;
+  prehodi = avtomat.prehodi;
+  sklad = Sklad.na novi_vrh (Sklad.z avtomat.sklad);
+  zacetni_sklad = avtomat.zacetni_sklad
+} *)
 
 let vsota_prvih_dveh =
   let q1 = Stanje.iz_niza "q1"

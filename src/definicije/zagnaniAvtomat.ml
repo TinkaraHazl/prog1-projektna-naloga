@@ -1,7 +1,7 @@
-type t = { avtomat : Avtomat.t; trak : Trak.t; stanje : Stanje.t; sklad: Sklad.t }
+type t = { avtomat : Avtomat.t; trak : Trak.t; stanje : Stanje.t; sklad : Sklad.t}
 
 let pozeni avtomat trak =
-  { avtomat; trak; stanje = Avtomat.zacetno_stanje avtomat; sklad = Sklad.prazen }
+  { avtomat; trak; stanje = Avtomat.zacetno_stanje avtomat; sklad = Avtomat.zacetni_sklad avtomat}
 
 let avtomat { avtomat; _ } = avtomat
 let trak { trak; _ } = trak

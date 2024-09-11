@@ -16,17 +16,33 @@ type model = {
 
 type msg = PreberiNiz of string | ZamenjajVmesnik of stanje_vmesnika
 
-let preberi_niz avtomat q niz =
+(* let preberi_niz avtomat q niz =
   let aux acc znak =
     match acc with
     | None -> None
-    | Some q -> Avtomat.prehodna_funkcija avtomat q znak
+    | Some (q, vrh) -> Avtomat.prehodna_funkcija avtomat q vrh znak
   in
-  niz |> String.to_seq |> Seq.fold_left aux (Some q)
+  niz |> String.to_seq |> Seq.fold_left aux Some (q, (Sklad.vrh avtomat.sklad)) *)
+
+let preberi_niz avtomat niz =
+  let trak = Trak.iz_niza niz in
+  let zagnani_avtomat = ZagnaniAvtomat.pozeni avtomat trak
+  in
+  let rec aux acc =
+  if Trak.je_na_koncu (ZagnaniAvtomat.trak acc) then Some(ZagnaniAvtomat.stanje acc) else
+  match ZagnaniAvtomat.korak_naprej acc with
+    |None -> None
+    |Some(a) -> aux a
+    (* if Trak.je_na_koncu (ZagnaniAvtomat.trak zagnani_avtomat) 
+      then ZagnaniAvtomat.stanje zagnani_avtomat
+    else match ZagnaniAvtomat.korak_naprej zagnani_avtomat with
+      |None -> None
+      |Some(a) -> a *)
+  in aux zagnani_avtomat
 
 let update model = function
   | PreberiNiz str -> (
-      match preberi_niz model.avtomat model.stanje_avtomata str with
+      match preberi_niz model.avtomat str with
       | None -> { model with stanje_vmesnika = OpozoriloONapacnemNizu }
       | Some stanje_avtomata ->
           {
@@ -96,4 +112,4 @@ let rec loop model =
   let model' = update model msg in
   loop model'
 
-let _ = loop (init enke_1mod3)
+let _ = loop (init vsota_prvih_dveh)
